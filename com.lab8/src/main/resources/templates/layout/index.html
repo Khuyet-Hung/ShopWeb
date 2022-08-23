@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+
+
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+    <!-- Header -->
+    <header class="header_area">
+        <!-- Top menu -->
+        <div th:replace="/layout/_top-menu.html">
+
+        </div>
+        <!-- Main menu -->
+        <div th:replace="/layout/_main-menu.html">
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <div th:replace="${main}">
+
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="/layout/_footer.html"></div>
+
+	<script src="../js/shopping-cart-app.js"></script>
+</body>
+
+</html>

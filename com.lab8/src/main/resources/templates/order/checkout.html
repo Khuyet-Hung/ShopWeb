@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+	<main>
+
+	<link rel="stylesheet" href="../css/bootstrap.css" />
+	<link rel="stylesheet" href="../vendors/linericon/style.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../css/themify-icons.css" />
+	<link rel="stylesheet" href="../css/flaticon.css" />
+	<link rel="stylesheet"
+		href="../vendors/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css" />
+	<link rel="stylesheet"
+		href="../vendors/nice-select/css/nice-select.css" />
+	<link rel="stylesheet" href="../vendors/animate-css/animate.css" />
+	<link rel="stylesheet" href="../vendors/jquery-ui/jquery-ui.css" />
+	<!-- main css -->
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/responsive.css" />
+
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div
+					class="banner_content d-md-flex justify-content-between align-items-center">
+					<div class="mb-3 mb-md-0">
+						<h2>Product Checkout</h2>
+						<p>Very us move be blessed multiply night</p>
+					</div>
+					<div class="page_link">
+						<a href="index.html">Home</a> <a href="checkout.html">Product
+							Checkout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================--> <!--================Checkout Area =================-->
+	<section class="checkout_area section_gap">
+		<div class="container">
+			
+			<div class="billing_details">
+				<div class="row">
+					<div class="col-lg-6">
+						<h3>Billing Details</h3>
+						<form class="row contact_form" action="#" method="post"
+							novalidate="novalidate">
+							<div class="col-md-6 form-group p_star">
+								<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+							</div>
+							<div class="col-md-6 form-group p_star">
+								<div class="form-control">{{order.createDate | date: 'dd-MM-yyyy'}}</div>
+							</div>
+							<div class="col-md-12 form-group p_star">
+								<input ng-model="order.address" type="text" class="form-control" id="number" name="number" placeholder="Your Address"/> 
+							</div>
+							<div class="col-md-12 form-group p_star">
+								<textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+							</div>
+							
+						</form>
+					</div>
+					
+					
+					<div class="col-lg-6">
+						<div class="order_box">
+							<h2>Your Order</h2>
+							<ul class="list">
+								<li><a href="#">Product <span>Total</span> </a></li>
+								<li ng-repeat="item in cart.items">
+									<a href="#" style="display: flex;">
+										<div style="width: 60%">{{item.name}} </div>
+										<span style="width: 20%; text-align: center;" class="middle">x {{item.qty}}</span> 
+										<span style="width: 20%;text-align: end;" class="last">${{item.qty * item.price | number:2}}</span>
+									</a>
+								</li>
+								<li>
+                    				<a href="#"><strong>Total<strong> <span>${{cart.amount | number:2}}</span> </a>
+                  				</li>
+							</ul>
+							
+							<div class="creat_account">
+								<input type="checkbox" id="f-option4" name="selector" /> <label
+									for="f-option4">I’ve read and accept the </label> <a href="#">terms
+									& conditions*</a>
+							</div>
+							<a class="main_btn" ng-click="order.purchase()">Proceed to Paypal</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Optional JavaScript --> <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="../js/jquery-3.2.1.min.js"></script> <script
+		src="../js/popper.js"></script> <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/stellar.js"></script> <script
+		src="../vendors/lightbox/simpleLightbox.min.js"></script> <script
+		src="../vendors/nice-select/js/jquery.nice-select.min.js"></script> <script
+		src="../vendors/isotope/imagesloaded.pkgd.min.js"></script> <script
+		src="../vendors/isotope/isotope-min.js"></script> <script
+		src="../vendors/owl-carousel/owl.carousel.min.js"></script> <script
+		src="../js/jquery.ajaxchimp.min.js"></script> <script
+		src="../vendors/counter-up/jquery.waypoints.min.js"></script> <script
+		src="../vendors/counter-up/jquery.counterup.js"></script> <script
+		src="../js/mail-script.js"></script> <script src="../js/theme.js"></script>
+	</main>
+</body>
+
+</html>

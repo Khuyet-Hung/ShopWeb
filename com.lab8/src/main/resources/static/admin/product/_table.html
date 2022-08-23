@@ -1,0 +1,81 @@
+<section class="cart_area pt-5">
+	<div class="container p-0">
+		<div class="cart_inner">
+			<div class="table-responsive billing_details">
+			<h3>List Product</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Price</th>
+							<th scope="col">Date</th>
+							<th scope="col">Image</th>
+							<th scope="col">Category</th>
+							<th scope="col">Available?</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in pager.items">
+							<td>
+								<div class="media">
+									<div class="media-body">
+										<h5>{{item.id}}</h5>
+									</div>
+								</div>
+							</td>
+							<td>
+								<h5>{{item.name}}</h5>
+							</td>
+							<td>
+								<h5>{{item.price | number:2}}</h5>
+							</td>
+							<td>
+								<h5>{{item.createDate | date:'dd-MM-yyyy'}}</h5>
+							</td>
+							<td>
+								<h5>{{item.image}}</h5>
+							</td>
+							<td>
+								<h5>{{item.category.name}}</h5>
+							</td>
+							<td>
+								<h5>{{item.available ? 'Yes' : 'No'}}</h5>
+							</td>
+							<td>
+								<a ng-click="edit(item)" title="Edit this" class="hover_display" style="padding: 4px;"><i class="ti-pencil-alt"></i></a>
+								<a ng-click="delete(item)" title="Remove this" class="hover_display" style="padding: 4px;"><i class="ti-trash"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<nav aria-label="Page navigation example" style="margin: 0 35.4%;">
+			  <ul class="pagination">
+			  	<li class="page-item">
+			      <a class="page-link" ng-click="pager.first()" aria-label="Previous">
+			        <span aria-hidden="true"><i class="ti-shift-left"></i> </span>
+			      </a>
+			    </li>
+			    <li class="page-item">
+			      <a class="page-link" ng-click="pager.prev()" aria-label="Previous">
+			        <span aria-hidden="true"><i class="ti-arrow-left"></i> </span>
+			      </a>
+			    </li>
+			    <li class="page-item"><a class="page-link">{{pager.page + 1}} of {{pager.count}}</a></li>
+			    <li class="page-item">
+			    	<a class="page-link"ng-click="pager.next()"aria-label="Next">
+			        	<span aria-hidden="true"><i class="ti-arrow-right"></i></span>
+				    </a>
+				</li>
+				<li class="page-item">
+			      <a class="page-link" ng-click="pager.last()" aria-label="Previous">
+			        <span aria-hidden="true"><i class="ti-shift-right"></i> </span>
+			      </a>
+			    </li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</section>

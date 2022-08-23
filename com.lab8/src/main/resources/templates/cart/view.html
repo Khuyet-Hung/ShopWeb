@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+	<main> 
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../vendors/linericon/style.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/themify-icons.css" />
+    <link rel="stylesheet" href="../css/flaticon.css" />
+    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css" />
+    <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="../vendors/animate-css/animate.css" />
+    <link rel="stylesheet" href="../vendors/jquery-ui/jquery-ui.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    
+    <section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div
+					class="banner_content d-md-flex justify-content-between align-items-center">
+					<div class="mb-3 mb-md-0">
+						<h2>Cart</h2>
+						<p>Very us move be blessed multiply night</p>
+					</div>
+					<div class="page_link">
+						<a href="../index.html">Home</a> <a href="../cart.html">Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================-->
+
+	<!--================Cart Area =================-->
+	<section class="cart_area">
+		<div class="container">
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Price</th>
+								<th scope="col">Quantity</th>
+								<th scope="col">Total</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in cart.items">
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src="../images/{{item.image}}" alt="" width="145px" height="98px" style="object-fit:contain"/>
+										</div>
+										<div class="media-body">
+											<p>{{item.name}}</p>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>${{item.price | number : 2}}</h5>
+								</td>
+								<td>
+									<div class="product_count">
+										<div class="buttons_added">
+  											<input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" aria-label="quantity" class="input-qty" min="0" type="number" >
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>${{item.price * item.qty | number : 2}}</h5>
+								</td>
+								<td>
+									<a ng-click="cart.remove(item.id)" class="remove-item-cart">
+										<i class="ti-close"></i>
+									</a>
+								</td>
+							</tr>
+							
+							<tr class="bottom_button">
+								<td><a class="gray_btn" ng-click="cart.clear()">Clear Cart</a></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="cupon_text" style="float: right;">
+										<input type="text" placeholder="Coupon Code" style="margin: -5px 0;"/> <a
+											class="main_btn" href="#">Apply</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>
+									<h5>Subtotal</h5>
+								</td>
+								<td>
+									<h5>${{cart.amount | number:2}}</h5>
+								</td>
+							</tr>
+							
+							<tr class="out_button_area">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="checkout_btn_inner" style="width: max-content">
+										<a class="gray_btn" th:href="@{/product/list}">Continue Shopping</a> <a
+											class="main_btn" th:href="@{/order/checkout}">Proceed to checkout</a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="../vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/isotope/isotope-min.js"></script>
+    <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../js/jquery.ajaxchimp.min.js"></script>
+    <script src="../vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../vendors/counter-up/jquery.counterup.js"></script>
+    <script src="../js/mail-script.js"></script>
+    <script src="../js/theme.js"></script>
+	</main>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+	<main> 
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../vendors/linericon/style.css" />
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/themify-icons.css" />
+		<link rel="stylesheet" href="../css/flaticon.css" />
+		<link rel="stylesheet"
+			href="../vendors/owl-carousel/owl.carousel.min.css" />
+		<link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css" />
+		<link rel="stylesheet"
+			href="../vendors/nice-select/css/nice-select.css" />
+		<link rel="stylesheet" href="../vendors/animate-css/animate.css" />
+		<link rel="stylesheet" href="../vendors/jquery-ui/jquery-ui.css" />
+		<!-- main css -->
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/responsive.css" />
+		
+		
+		<section class="cart_area">
+		<div class="container">
+			<div class="cart_inner billing_details">
+				<div class="table-responsive">
+				<h3 class="">Your Order</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" width="15%">No</th>
+								<th scope="col" width="15%">Order No</th>
+								<th scope="col" width="20%">Order Date</th>
+								<th scope="col" width="40%">Shipping Address</th>
+								<th scope="col" width="10%"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="order,state:${orders}">
+									<td>
+										<h5>[[${state.index}]]</h5>
+									</td>
+									<td>
+										<h5>[[${order.id}]]</h5>
+									</td>
+									<td>
+										<h5>[[${order.createDate}]]</h5>
+									</td>
+									<td>
+										<h5>[[${order.address}]]</h5>
+									</td>
+									<td>
+										<a th:href="@{|/order/detail/${order.id}|}">Xem</a>
+									</td>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+		
+		
+		<script src="../js/jquery-3.2.1.min.js"></script> <script
+		src="../js/popper.js"></script> <script src="../js/bootstrap.min.js"></script>
+		<script src="../js/stellar.js"></script> <script
+		src="../vendors/lightbox/simpleLightbox.min.js"></script> <script
+		src="../vendors/nice-select/js/jquery.nice-select.min.js"></script> <script
+		src="../vendors/isotope/imagesloaded.pkgd.min.js"></script> <script
+		src="../vendors/isotope/isotope-min.js"></script> <script
+		src="../vendors/owl-carousel/owl.carousel.min.js"></script> <script
+		src="../js/jquery.ajaxchimp.min.js"></script> <script
+		src="../vendors/counter-up/jquery.waypoints.min.js"></script> <script
+		src="../vendors/counter-up/jquery.counterup.js"></script> <script
+		src="../js/mail-script.js"></script> <script src="../js/theme.js"></script>
+	</main>
+</body>
+</html>
